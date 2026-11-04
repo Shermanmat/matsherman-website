@@ -27,19 +27,47 @@ body {
 }
 
 main {
-  max-width: 640px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 4rem 1.25rem;
 }
 
+.hero .eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+}
+
 header h1 {
-  margin-bottom: 0.25rem;
-  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
 }
 
 .tagline {
   color: var(--muted);
   margin-top: 0;
+  font-size: 1.1rem;
+  max-width: 54ch;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cta:hover {
+  text-decoration: none;
+  opacity: 0.9;
 }
 
 section {
@@ -52,6 +80,43 @@ section h2 {
   letter-spacing: 0.05em;
   color: var(--muted);
   margin-bottom: 0.75rem;
+}
+
+#about p {
+  max-width: 62ch;
+}
+
+.topic-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.topic-list li + li {
+  margin-top: 0;
+}
+
+@media (max-width: 540px) {
+  .topic-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.topic-list li {
+  border: 1px solid color-mix(in srgb, var(--muted) 30%, transparent);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+}
+
+.topic-list h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.topic-list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 a {
