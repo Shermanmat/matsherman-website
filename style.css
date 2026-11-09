@@ -119,6 +119,37 @@ section h2 {
   font-size: 0.92rem;
 }
 
+.toc-numbered {
+  list-style: none;
+  counter-reset: toc;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-numbered li {
+  counter-increment: toc;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 25%, transparent);
+}
+
+.toc-numbered li:last-child {
+  border-bottom: none;
+}
+
+.toc-numbered li::before {
+  content: counter(toc, decimal-leading-zero);
+  color: var(--accent);
+  font-weight: 600;
+  margin-right: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.embed-frame {
+  max-width: 480px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 a {
   color: var(--accent);
   text-decoration: none;
