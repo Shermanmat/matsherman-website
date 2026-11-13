@@ -8,7 +8,7 @@
 <meta property="og:title" content="The Access Game by Mat Sherman">
 <meta property="og:description" content="How Outsider Founders Get in the Room and Raise Venture Capital.">
 <meta property="og:type" content="book">
-<meta property="og:image" content="https://matsherman.com/book/img/cover.webp">
+<meta property="og:image" content="https://matsherman.com/book/img/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F6F0E2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
     --gold-deep: #8F6A27;
     --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
     --sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --pad: clamp(1.5rem, 5vw, 5rem);
+    --pad: clamp(1.25rem, 3vw, 2.5rem);
   }
   *, *::before, *::after { box-sizing: border-box; }
   body {
@@ -32,28 +32,28 @@
     background: var(--ivory);
     color: var(--navy);
     font-family: var(--serif);
-    font-size: 1.2rem;
+    font-size: 1.45rem;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; }
   :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-  main { max-width: 42rem; margin: 0 auto; padding: 0 var(--pad); }
-  section { padding: clamp(2.5rem, 6vw, 4rem) 0; }
+  main { max-width: 56rem; margin: 0 auto; padding: 0 var(--pad); }
+  section { padding: clamp(3rem, 7vw, 5rem) 0; }
   section + section { border-top: 1px solid rgba(20, 33, 61, 0.14); }
 
   /* Hero */
   .hero {
-    max-width: 48rem;
+    max-width: 62rem;
     margin: 0 auto;
-    padding: clamp(3rem, 8vw, 5rem) var(--pad) clamp(2rem, 5vw, 3rem);
+    padding: clamp(3.5rem, 9vw, 6rem) var(--pad) clamp(2.5rem, 6vw, 3.5rem);
     text-align: center;
   }
   .eyebrow {
-    margin: 0 0 1rem;
+    margin: 0 0 1.1rem;
     font-family: var(--sans);
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 1rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--gold-deep);
@@ -61,39 +61,39 @@
   h1 {
     margin: 0;
     font-weight: 400;
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    line-height: 1.08;
+    font-size: clamp(3rem, 7vw, 4.6rem);
+    line-height: 1.04;
     letter-spacing: -0.01em;
     color: var(--navy);
   }
   .author {
-    margin: 1rem 0 0;
+    margin: 1.1rem 0 0;
     font-family: var(--sans);
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--navy-soft);
   }
   .cover {
     display: block;
-    width: 12rem;
+    width: 18rem;
     height: auto;
-    margin: 2rem auto 0;
+    margin: 2.5rem auto 0;
     border-radius: 2px;
-    box-shadow: 0 20px 36px -16px rgba(20, 33, 61, 0.35);
+    box-shadow: 0 24px 44px -18px rgba(20, 33, 61, 0.35);
   }
-  .hero-cta { margin-top: 2rem; }
+  .hero-cta { margin-top: 2.5rem; }
   .btn {
     display: inline-block;
     font-family: var(--sans);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     text-decoration: none;
     background: var(--navy);
     color: var(--ivory);
     border: 0;
-    padding: 0.8rem 1.4rem;
+    padding: 1rem 1.75rem;
     border-radius: 2px;
     cursor: pointer;
     transition: background 0.2s;
@@ -101,16 +101,16 @@
   .btn:hover { background: var(--gold-deep); }
 
   h2 {
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
     font-weight: 400;
-    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    font-size: clamp(2.1rem, 4vw, 2.6rem);
     letter-spacing: -0.01em;
   }
-  p { margin: 0 0 1rem; }
+  p { margin: 0 0 1.25rem; }
   p:last-child { margin-bottom: 0; }
 
   /* Contents */
-  .toc { list-style: none; margin: 0; padding: 0; counter-reset: toc; font-family: var(--sans); font-size: 1.05rem; }
+  .toc { list-style: none; margin: 0; padding: 0; counter-reset: toc; font-family: var(--sans); font-size: 1.3rem; }
   .toc li {
     counter-increment: toc;
     padding: 0.55rem 0;
@@ -124,32 +124,32 @@
     margin-right: 0.9rem;
     font-variant-numeric: tabular-nums;
   }
-  .also { margin-top: 1rem; font-style: italic; color: var(--navy-soft); font-size: 1rem; }
+  .also { margin-top: 1.25rem; font-style: italic; color: var(--navy-soft); font-size: 1.15rem; }
 
   /* Signup */
   .signup { background: var(--ivory-deep); margin: 0 calc(var(--pad) * -1); padding-left: var(--pad); padding-right: var(--pad); }
-  .embed-frame { max-width: 28rem; border-radius: 4px; overflow: hidden; border: 1px solid rgba(20, 33, 61, 0.2); margin-top: 1.25rem; }
-  .fine { margin-top: 0.75rem; font-family: var(--sans); font-size: 0.82rem; color: var(--navy-soft); }
+  .embed-frame { max-width: 32rem; border-radius: 4px; overflow: hidden; border: 1px solid rgba(20, 33, 61, 0.2); margin-top: 1.5rem; }
+  .fine { margin-top: 0.9rem; font-family: var(--sans); font-size: 0.95rem; color: var(--navy-soft); }
 
   /* Author */
-  .author-sec .links { font-family: var(--sans); font-size: 0.92rem; display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1rem; }
+  .author-sec .links { font-family: var(--sans); font-size: 1.05rem; display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.25rem; }
   .author-sec .links a { text-decoration-color: var(--gold); text-underline-offset: 4px; }
 
   /* QR-code links referenced in the book */
   .qrlinks h2 {
-    font-family: var(--sans); font-weight: 600; font-size: 0.8rem;
+    font-family: var(--sans); font-weight: 600; font-size: 0.9rem;
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy-soft);
   }
-  .qrlinks ul { list-style: none; margin: 0; padding: 0; font-family: var(--sans); font-size: 1rem; }
-  .qrlinks li + li { margin-top: 0.5rem; }
+  .qrlinks ul { list-style: none; margin: 0; padding: 0; font-family: var(--sans); font-size: 1.15rem; }
+  .qrlinks li + li { margin-top: 0.6rem; }
   .qrlinks a { text-decoration-color: var(--gold); text-underline-offset: 4px; }
 
   footer {
-    max-width: 42rem;
+    max-width: 56rem;
     margin: 0 auto;
-    padding: 1.5rem var(--pad) 3rem;
+    padding: 1.75rem var(--pad) 3rem;
     font-family: var(--sans);
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     color: var(--navy-soft);
     display: flex;
     flex-wrap: wrap;
@@ -165,7 +165,7 @@
   <p class="eyebrow">Launching early 2027</p>
   <h1>The Access Game</h1>
   <p class="author">A memoir and playbook by Mat Sherman</p>
-  <img class="cover" src="img/cover.webp" width="960" height="1440" alt="Cover of The Access Game by Mat Sherman: a gold path rising through a branching network of navy nodes on a cream background.">
+  <img class="cover" src="img/cover.jpg" width="1333" height="2000" alt="Cover of The Access Game by Mat Sherman: How Outsider Founders Raise Venture Capital, with a gold path rising through a branching network of navy nodes on a cream background.">
   <div class="hero-cta"><a class="btn" href="#notify">Get launch updates</a></div>
 </header>
 
