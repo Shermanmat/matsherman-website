@@ -27,371 +27,241 @@
     --pad: clamp(1.5rem, 5vw, 5rem);
   }
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     background: var(--ivory);
     color: var(--navy);
     font-family: var(--serif);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; }
   :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  main { max-width: 42rem; margin: 0 auto; padding: 0 var(--pad); }
+  section { padding: clamp(2.5rem, 6vw, 4rem) 0; }
+  section + section { border-top: 1px solid rgba(20, 33, 61, 0.14); }
 
   /* Hero */
   .hero {
-    min-height: 100svh;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    padding: clamp(2rem, 6vw, 4rem) var(--pad);
-    gap: 1rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-text { position: relative; z-index: 2; }
-  h1 {
-    margin: 0;
-    font-weight: 400;
-    font-size: clamp(2.6rem, 5.6vw, 5rem);
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    max-width: 14ch;
-    color: var(--navy);
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 8vw, 5rem) var(--pad) clamp(2rem, 5vw, 3rem);
+    text-align: center;
   }
   .eyebrow {
-    margin: 0 0 1.25rem;
+    margin: 0 0 1rem;
     font-family: var(--sans);
     font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.18em;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--gold-deep);
   }
-  .author {
-    margin: 2.25rem 0 0;
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+  h1 {
+    margin: 0;
+    font-weight: 400;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
     color: var(--navy);
   }
-  .author::before {
-    content: "";
-    display: block;
-    width: 3rem;
-    height: 2px;
-    background: var(--gold);
-    margin-bottom: 1.25rem;
+  .author {
+    margin: 1rem 0 0;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy-soft);
   }
-  .hero-cta { margin-top: 2.5rem; }
+  .cover {
+    display: block;
+    width: 12rem;
+    height: auto;
+    margin: 2rem auto 0;
+    border-radius: 2px;
+    box-shadow: 0 20px 36px -16px rgba(20, 33, 61, 0.35);
+  }
+  .hero-cta { margin-top: 2rem; }
   .btn {
     display: inline-block;
     font-family: var(--sans);
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-decoration: none;
     background: var(--navy);
     color: var(--ivory);
     border: 0;
-    padding: 0.95rem 1.6rem;
+    padding: 0.8rem 1.4rem;
     border-radius: 2px;
     cursor: pointer;
     transition: background 0.2s;
   }
   .btn:hover { background: var(--gold-deep); }
 
-  .cover-wrap { position: relative; z-index: 1; justify-self: center; width: 100%; display: flex; justify-content: center; }
-  .cover {
-    display: block;
-    width: min(100%, 26rem, calc(78svh * 0.6667));
-    height: auto;
-    border-radius: 2px;
-    box-shadow: 0 34px 60px -24px rgba(20, 33, 61, 0.4), 0 10px 20px -8px rgba(20, 33, 61, 0.22);
-  }
-
-  @media (min-width: 900px) {
-    .hero { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); }
-  }
-
-  /* Premise */
-  section { padding: clamp(4rem, 9vw, 8rem) var(--pad); }
-  .premise {
-    background: var(--navy);
-    color: var(--ivory);
-    text-align: center;
-  }
-  .premise p {
-    margin: 0 auto;
-    max-width: 30ch;
-    font-size: clamp(1.9rem, 4.2vw, 3.4rem);
-    line-height: 1.15;
+  h2 {
+    margin: 0 0 1rem;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
     letter-spacing: -0.01em;
   }
-  .premise p + p { margin-top: 1.6rem; color: #D8CDB0; }
-  .premise .gold { color: #D7AE62; font-style: italic; }
-
-  /* What the book covers */
-  .covers-inner { max-width: 70rem; margin: 0 auto; }
-  .covers-head { display: grid; gap: 1.5rem; margin-bottom: clamp(3rem, 6vw, 5.5rem); align-items: end; }
-  .covers-head h2 {
-    margin: 0; font-weight: 400;
-    font-size: clamp(3rem, 7vw, 6rem); line-height: 0.96; letter-spacing: -0.025em;
-  }
-  .covers-head .lede { margin: 0; max-width: 40ch; font-size: 1.3rem; color: var(--navy-soft); }
-  .parts { display: grid; gap: clamp(2.75rem, 5vw, 3.75rem); }
-  .part { display: grid; grid-template-columns: 5rem 1fr; column-gap: 1.5rem; row-gap: 0.75rem; align-items: start; }
-  .part svg { width: 100%; height: auto; grid-row: span 2; }
-  .part .chs { margin: 0 0 0.35rem; font-family: var(--sans); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; color: var(--gold-deep); }
-  .part h3 { margin: 0; font-weight: 400; font-size: clamp(1.8rem, 3.2vw, 2.5rem); line-height: 1.08; letter-spacing: -0.01em; }
-  .part-body { margin: 0; max-width: 54ch; color: var(--navy-soft); font-size: 1.2rem; }
-  @media (min-width: 800px) {
-    .covers-head { grid-template-columns: 1.15fr 1fr; gap: 4rem; }
-    .part { grid-template-columns: 7rem 19rem 1fr; column-gap: 2.5rem; }
-    .part svg { grid-row: auto; }
-    .part .part-body { padding-top: 0.2rem; }
-  }
+  p { margin: 0 0 1rem; }
+  p:last-child { margin-bottom: 0; }
 
   /* Contents */
-  .contents { background: var(--ivory); padding-top: clamp(2rem, 4vw, 4rem); }
-  .contents-inner { max-width: 70rem; margin: 0 auto; }
-  .contents-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 2.5rem; }
-  .contents-head h2 { margin: 0; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.05; letter-spacing: -0.015em; }
-  .toggle {
-    font-family: var(--sans); font-weight: 500; font-size: 0.9rem;
-    background: transparent; color: var(--navy);
-    border: 1px solid rgba(20, 33, 61, 0.35); border-radius: 2px;
-    padding: 0.55rem 1rem; cursor: pointer; transition: background 0.2s, color 0.2s;
+  .toc { list-style: none; margin: 0; padding: 0; counter-reset: toc; font-family: var(--sans); font-size: 1.05rem; }
+  .toc li {
+    counter-increment: toc;
+    padding: 0.55rem 0;
+    border-top: 1px solid rgba(20, 33, 61, 0.12);
   }
-  .toggle:hover { background: var(--navy); color: var(--ivory); }
-
-  .toc { list-style: none; margin: 0; padding: 0 0 0 2.4rem; position: relative; }
-  .toc::before {
-    content: ""; position: absolute; left: 0.5rem; top: 1.9rem; bottom: 1.9rem; width: 2px;
-    background: linear-gradient(to bottom, var(--navy) 0, var(--gold) 55%, var(--gold) 100%);
-    opacity: 0.55;
+  .toc li:last-child { border-bottom: 1px solid rgba(20, 33, 61, 0.12); }
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    color: var(--gold-deep);
+    font-weight: 600;
+    margin-right: 0.9rem;
+    font-variant-numeric: tabular-nums;
   }
-  .toc-row { position: relative; border-top: 1px solid rgba(20, 33, 61, 0.14); }
-  .toc-row:last-child { border-bottom: 1px solid rgba(20, 33, 61, 0.14); }
-  .toc-row::before {
-    content: ""; position: absolute; left: -2.4rem; top: 1.9rem; transform: translateY(-50%);
-    width: 1.05rem; height: 1.05rem; border-radius: 50%; background: var(--ivory);
-    border: 2px solid var(--navy); transition: background 0.25s, border-color 0.25s, transform 0.25s;
-  }
-  .toc-row:has(details[open])::before { background: var(--gold); border-color: var(--gold); transform: translateY(-50%) scale(1.15); }
-  .toc-row.plain::before { background: var(--navy); }
-
-  .toc summary, .toc-row.plain {
-    display: grid; grid-template-columns: 3.2rem 1fr auto auto; align-items: center; gap: 1rem;
-  }
-  .toc summary { list-style: none; cursor: pointer; padding: 1.1rem 0; }
-  .toc summary::-webkit-details-marker { display: none; }
-  .toc-row.plain { padding: 1.1rem 0; grid-template-columns: 3.2rem 1fr; }
-  .num { font-style: italic; font-size: 2.6rem; line-height: 1; color: var(--gold-deep); }
-  .ttl { font-size: clamp(1.45rem, 2.6vw, 2.15rem); line-height: 1.12; letter-spacing: -0.01em; }
-  .toc-row.plain .ttl { font-size: clamp(1.3rem, 2.2vw, 1.8rem); color: var(--navy-soft); }
-  .meta { font-family: var(--sans); font-size: 0.85rem; color: var(--navy-soft); white-space: nowrap; }
-  .plus { position: relative; width: 1.1rem; height: 1.1rem; }
-  .plus::before, .plus::after {
-    content: ""; position: absolute; left: 50%; top: 50%; background: var(--navy);
-    transition: transform 0.25s;
-  }
-  .plus::before { width: 100%; height: 2px; transform: translate(-50%, -50%); }
-  .plus::after { width: 2px; height: 100%; transform: translate(-50%, -50%); }
-  details[open] .plus::after { transform: translate(-50%, -50%) rotate(90deg); }
-  .toc summary:hover .ttl { color: var(--gold-deep); }
-
-  .subs {
-    list-style: none; margin: 0; padding: 0 0 1.6rem 4.2rem;
-    columns: 2; column-gap: 3rem;
-  }
-  .subs li {
-    break-inside: avoid; position: relative; padding: 0.3rem 0 0.3rem 1.25rem;
-    font-size: 1.15rem; line-height: 1.3; color: var(--navy-soft);
-  }
-  .subs li::before {
-    content: ""; position: absolute; left: 0; top: 0.95rem; width: 6px; height: 6px;
-    border-radius: 50%; background: var(--gold);
-  }
-  .also { margin: 1.75rem 0 0 2.4rem; font-style: italic; color: var(--navy-soft); font-size: 1.15rem; max-width: 50ch; }
-
-  @media (max-width: 700px) {
-    .toc { padding-left: 2rem; }
-    .toc-row::before { left: -2rem; width: 0.9rem; height: 0.9rem; }
-    .toc::before { left: 0.4rem; }
-    .toc summary { grid-template-columns: 2.2rem 1fr auto; gap: 0.75rem; }
-    .toc-row.plain { grid-template-columns: 2.2rem 1fr; gap: 0.75rem; }
-    .num { font-size: 1.9rem; }
-    .meta { display: none; }
-    .subs { columns: 1; padding-left: 3rem; }
-    .also { margin-left: 2rem; }
-    .contents-head { flex-direction: column; align-items: flex-start; }
-  }
+  .also { margin-top: 1rem; font-style: italic; color: var(--navy-soft); font-size: 1rem; }
 
   /* Signup */
-  .signup { background: var(--ivory-deep); }
-  .signup-inner { max-width: 44rem; margin: 0 auto; }
-  .signup h2 { margin: 0 0 1rem; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.05; letter-spacing: -0.015em; }
-  .signup .lede { margin: 0 0 2rem; color: var(--navy-soft); font-size: 1.2rem; max-width: 50ch; }
-  .embed-frame { max-width: 30rem; border-radius: 4px; overflow: hidden; border: 1px solid rgba(20, 33, 61, 0.2); }
-  .fine { margin: 1rem 0 0; font-family: var(--sans); font-size: 0.85rem; color: var(--navy-soft); }
+  .signup { background: var(--ivory-deep); margin: 0 calc(var(--pad) * -1); padding-left: var(--pad); padding-right: var(--pad); }
+  .embed-frame { max-width: 28rem; border-radius: 4px; overflow: hidden; border: 1px solid rgba(20, 33, 61, 0.2); margin-top: 1.25rem; }
+  .fine { margin-top: 0.75rem; font-family: var(--sans); font-size: 0.82rem; color: var(--navy-soft); }
 
   /* Author */
-  .author-sec { max-width: 70rem; margin: 0 auto; display: grid; gap: 2rem; }
-  .author-sec h2 { margin: 0 0 0; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.05; letter-spacing: -0.015em; }
-  .author-sec p { margin: 0 0 1.1rem; max-width: 52ch; }
-  .author-sec .links { font-family: var(--sans); font-size: 0.95rem; display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; }
-  .author-sec .links a { text-decoration-color: var(--gold); text-underline-offset: 4px; text-decoration-thickness: 2px; }
-  @media (min-width: 800px) { .author-sec { grid-template-columns: 18rem 1fr; gap: 4rem; } }
+  .author-sec .links { font-family: var(--sans); font-size: 0.92rem; display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1rem; }
+  .author-sec .links a { text-decoration-color: var(--gold); text-underline-offset: 4px; }
 
   /* QR-code links referenced in the book */
-  .qrlinks { background: var(--ivory); border-top: 1px solid rgba(20, 33, 61, 0.14); }
-  .qrlinks-inner { max-width: 44rem; margin: 0 auto; }
   .qrlinks h2 {
-    margin: 0 0 1.5rem; font-family: var(--sans); font-weight: 600; font-size: 0.85rem;
-    letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy-soft);
+    font-family: var(--sans); font-weight: 600; font-size: 0.8rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy-soft);
   }
-  .qrlinks ul { list-style: none; margin: 0; padding: 0; font-family: var(--sans); font-size: 1.05rem; }
-  .qrlinks li + li { margin-top: 0.6rem; }
-  .qrlinks a { text-decoration-color: var(--gold); text-underline-offset: 4px; text-decoration-thickness: 2px; }
+  .qrlinks ul { list-style: none; margin: 0; padding: 0; font-family: var(--sans); font-size: 1rem; }
+  .qrlinks li + li { margin-top: 0.5rem; }
+  .qrlinks a { text-decoration-color: var(--gold); text-underline-offset: 4px; }
 
   footer {
-    padding: 2rem var(--pad) 3rem;
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 1.5rem var(--pad) 3rem;
     font-family: var(--sans);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--navy-soft);
-    border-top: 1px solid rgba(20, 33, 61, 0.15);
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem 1.5rem;
     justify-content: space-between;
   }
   footer a { text-decoration-color: var(--gold); text-underline-offset: 3px; }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .toc-row::before, .plus::before, .plus::after { transition: none; }
-  }
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <div class="hero-text">
-    <p class="eyebrow">Launching early 2027</p>
-    <h1><span class="sr">The Access Game: </span>How Outsider Founders Get in the Room and Raise Venture Capital</h1>
-    <p class="author">A memoir and playbook by Mat Sherman</p>
-    <div class="hero-cta"><a class="btn" href="#notify">Get launch updates</a></div>
-  </div>
-  <div class="cover-wrap">
-    <img class="cover" src="img/cover.webp" width="960" height="1440" alt="Cover of The Access Game by Mat Sherman: a gold path rising through a branching network of navy nodes on a cream background.">
-  </div>
+  <p class="eyebrow">Launching early 2027</p>
+  <h1>The Access Game</h1>
+  <p class="author">A memoir and playbook by Mat Sherman</p>
+  <img class="cover" src="img/cover.webp" width="960" height="1440" alt="Cover of The Access Game by Mat Sherman: a gold path rising through a branching network of navy nodes on a cream background.">
+  <div class="hero-cta"><a class="btn" href="#notify">Get launch updates</a></div>
 </header>
 
 <main>
-  <section class="premise" aria-label="About the book">
-    <p>I spent years building in Phoenix and hearing no from YC and the coastal funds.</p>
-    <p>The gap was never talent or traction. <span class="gold">It was access.</span></p>
+  <section id="about-book">
+    <h2>What it's about</h2>
+    <p>
+      I grew up in Phoenix, nowhere near Silicon Valley, and had to figure
+      out — the slow, expensive way — how founders actually get access to
+      investors. <em>The Access Game</em> is the book I wish someone had
+      handed me: part memoir of how an outsider found his way into Y
+      Combinator's orbit, landed Jason Calacanis as a first investor, and
+      built relationships with people like Eric Ries, and part playbook for
+      any founder who wants to raise venture capital without already being
+      in the room.
+    </p>
+    <p>
+      I wrote it for a selfish reason: many founders want to work with me
+      but don't have the context on how this world works. Now I can hand
+      them the book, and they're set.
+    </p>
   </section>
 
-  <section class="covers" aria-labelledby="covers-h">
-    <div class="covers-inner">
-      <div class="covers-head">
-        <h2 id="covers-h">Context can be taught.</h2>
-        <p class="lede">Most of Silicon Valley&rsquo;s rules are unwritten. They get passed down through private group chats, apprenticeships, and insider institutions. This book translates them for founders who cannot text a tier-one investor today.</p>
-      </div>
-      <div class="parts">
-      <article class="part">
-        <svg viewBox="0 0 88 88" aria-hidden="true" focusable="false"><g stroke="#14213D" stroke-width="1.2" opacity="0.5" fill="none"><line x1="44.0" y1="44.0" x2="20.7" y2="65.4"/><line x1="44.0" y1="44.0" x2="47.6" y2="3.2"/></g><circle cx="44.0" cy="44.0" r="5.5" fill="#B8893B"/><circle cx="20.7" cy="65.4" r="3.3" fill="#14213D"/><circle cx="47.6" cy="3.2" r="4.0" fill="#14213D"/></svg>
-        <div class="part-head"><p class="chs">Chapters One and Two</p><h3>From Phoenix to the room</h3></div>
-        <p class="part-body">How a Phoenix native found Silicon Valley through the internet: a first startup, Y Combinator's early influence, landing Jason Calacanis as a first investor, and the company Eric Ries helped seed. It is optional reading, but it shows what moving inward actually takes.</p>
-      </article><article class="part">
-        <svg viewBox="0 0 88 88" aria-hidden="true" focusable="false"><g stroke="#14213D" stroke-width="1.2" opacity="0.5" fill="none"><line x1="44.0" y1="44.0" x2="26.8" y2="59.7"/><line x1="44.0" y1="44.0" x2="46.6" y2="14.9"/><line x1="44.0" y1="44.0" x2="64.6" y2="70.8"/><line x1="26.8" y1="59.7" x2="7.0" y2="37.4"/><line x1="46.6" y1="14.9" x2="78.6" y2="22.0"/></g><circle cx="44.0" cy="44.0" r="5.5" fill="#B8893B"/><circle cx="26.8" cy="59.7" r="3.3" fill="#14213D"/><circle cx="46.6" cy="14.9" r="4.0" fill="#14213D"/><circle cx="64.6" cy="70.8" r="2.6" fill="#14213D"/><circle cx="7.0" cy="37.4" r="3.3" fill="#14213D"/><circle cx="78.6" cy="22.0" r="4.0" fill="#14213D"/></svg>
-        <div class="part-head"><p class="chs">Chapters Three and Four</p><h3>The reality check</h3></div>
-        <p class="part-body">A warning before you start. The facts about raising venture capital are sobering, and proximity matters more than most founders admit. Then the real currency of tech, social capital: who knows you, who will vouch for you, and what every introduction costs.</p>
-      </article><article class="part">
-        <svg viewBox="0 0 88 88" aria-hidden="true" focusable="false"><g stroke="#14213D" stroke-width="1.2" opacity="0.5" fill="none"><line x1="44.0" y1="44.0" x2="29.0" y2="57.7"/><line x1="44.0" y1="44.0" x2="46.2" y2="19.1"/><line x1="44.0" y1="44.0" x2="61.4" y2="66.7"/><line x1="29.0" y1="57.7" x2="12.9" y2="38.5"/><line x1="29.0" y1="57.7" x2="34.5" y2="79.5"/><line x1="46.2" y1="19.1" x2="72.9" y2="25.6"/><line x1="46.2" y1="19.1" x2="26.1" y2="9.4"/><line x1="61.4" y1="66.7" x2="82.5" y2="58.1"/></g><circle cx="44.0" cy="44.0" r="5.5" fill="#B8893B"/><circle cx="29.0" cy="57.7" r="3.3" fill="#14213D"/><circle cx="46.2" cy="19.1" r="4.0" fill="#14213D"/><circle cx="61.4" cy="66.7" r="2.6" fill="#14213D"/><circle cx="12.9" cy="38.5" r="3.3" fill="#14213D"/><circle cx="72.9" cy="25.6" r="4.0" fill="#14213D"/><circle cx="34.5" cy="79.5" r="2.6" fill="#14213D"/><circle cx="26.1" cy="9.4" r="3.3" fill="#14213D"/><circle cx="82.5" cy="58.1" r="4.0" fill="#14213D"/></svg>
-        <div class="part-head"><p class="chs">Chapters Five and Six</p><h3>Before the raise</h3></div>
-        <p class="part-body">The fundamentals: whether to raise at all, how much, how to price it, SAFEs versus priced rounds, the one-liner and the deck. Then node stacking, a way to build a network of advocates through accelerators, events, Twitter, and time in SF.</p>
-      </article><article class="part">
-        <svg viewBox="0 0 88 88" aria-hidden="true" focusable="false"><g stroke="#14213D" stroke-width="1.2" opacity="0.5" fill="none"><line x1="44.0" y1="44.0" x2="30.6" y2="56.3"/><line x1="44.0" y1="44.0" x2="45.9" y2="22.0"/><line x1="44.0" y1="44.0" x2="59.2" y2="63.8"/><line x1="30.6" y1="56.3" x2="16.9" y2="39.2"/><line x1="30.6" y1="56.3" x2="35.8" y2="74.5"/><line x1="30.6" y1="56.3" x2="10.1" y2="58.0"/><line x1="45.9" y1="22.0" x2="69.0" y2="28.1"/><line x1="45.9" y1="22.0" x2="28.6" y2="14.3"/><line x1="45.9" y1="22.0" x2="60.2" y2="9.4"/><line x1="59.2" y1="63.8" x2="77.0" y2="56.1"/><line x1="59.2" y1="63.8" x2="55.9" y2="81.8"/><line x1="16.9" y1="39.2" x2="10.1" y2="58.0"/><line x1="16.9" y1="39.2" x2="8.5" y2="23.4"/><line x1="69.0" y1="28.1" x2="60.2" y2="9.4"/><line x1="35.8" y1="74.5" x2="55.9" y2="81.8"/><line x1="28.6" y1="14.3" x2="8.5" y2="23.4"/></g><circle cx="44.0" cy="44.0" r="5.5" fill="#B8893B"/><circle cx="30.6" cy="56.3" r="3.3" fill="#14213D"/><circle cx="45.9" cy="22.0" r="4.0" fill="#14213D"/><circle cx="59.2" cy="63.8" r="2.6" fill="#14213D"/><circle cx="16.9" cy="39.2" r="3.3" fill="#14213D"/><circle cx="69.0" cy="28.1" r="4.0" fill="#14213D"/><circle cx="35.8" cy="74.5" r="2.6" fill="#14213D"/><circle cx="28.6" cy="14.3" r="3.3" fill="#14213D"/><circle cx="77.0" cy="56.1" r="4.0" fill="#14213D"/><circle cx="10.1" cy="58.0" r="2.6" fill="#14213D"/><circle cx="60.2" cy="9.4" r="3.3" fill="#14213D"/><circle cx="55.9" cy="81.8" r="4.0" fill="#14213D"/><circle cx="8.5" cy="23.4" r="2.6" fill="#14213D"/></svg>
-        <div class="part-head"><p class="chs">Chapters Seven and Eight</p><h3>Running the raise</h3></div>
-        <p class="part-body">What to do and how to talk once you are in the middle of a process: mapping your network, managing intros, winning the meeting, getting the wire. Includes a one-year timeline from zero to a closed round, and the mistakes first-time founders make most often.</p>
-      </article><article class="part">
-        <svg viewBox="0 0 88 88" aria-hidden="true" focusable="false"><g stroke="#14213D" stroke-width="1.2" opacity="0.5" fill="none"><line x1="44.0" y1="44.0" x2="31.8" y2="55.2"/><line x1="44.0" y1="44.0" x2="45.7" y2="24.4"/><line x1="44.0" y1="44.0" x2="57.4" y2="61.5"/><line x1="31.8" y1="55.2" x2="20.3" y2="39.8"/><line x1="31.8" y1="55.2" x2="36.9" y2="70.5"/><line x1="31.8" y1="55.2" x2="14.8" y2="56.1"/><line x1="45.7" y1="24.4" x2="65.8" y2="30.1"/><line x1="45.7" y1="24.4" x2="30.7" y2="18.3"/><line x1="45.7" y1="24.4" x2="57.9" y2="14.2"/><line x1="45.7" y1="24.4" x2="39.1" y2="6.1"/><line x1="57.4" y1="61.5" x2="36.9" y2="70.5"/><line x1="57.4" y1="61.5" x2="72.5" y2="54.4"/><line x1="57.4" y1="61.5" x2="54.2" y2="76.5"/><line x1="57.4" y1="61.5" x2="74.0" y2="69.2"/><line x1="20.3" y1="39.8" x2="30.7" y2="18.3"/><line x1="20.3" y1="39.8" x2="14.8" y2="56.1"/><line x1="20.3" y1="39.8" x2="13.6" y2="26.4"/><line x1="20.3" y1="39.8" x2="3.9" y2="45.7"/><line x1="65.8" y1="30.1" x2="57.9" y2="14.2"/><line x1="65.8" y1="30.1" x2="79.4" y2="36.2"/><line x1="65.8" y1="30.1" x2="73.1" y2="15.1"/><line x1="36.9" y1="70.5" x2="54.2" y2="76.5"/><line x1="36.9" y1="70.5" x2="22.6" y2="74.4"/><line x1="30.7" y1="18.3" x2="13.6" y2="26.4"/><line x1="30.7" y1="18.3" x2="39.1" y2="6.1"/><line x1="72.5" y1="54.4" x2="79.4" y2="36.2"/><line x1="72.5" y1="54.4" x2="74.0" y2="69.2"/><line x1="14.8" y1="56.1" x2="22.6" y2="74.4"/><line x1="14.8" y1="56.1" x2="3.9" y2="45.7"/><line x1="57.9" y1="14.2" x2="73.1" y2="15.1"/></g><circle cx="44.0" cy="44.0" r="5.5" fill="#B8893B"/><circle cx="31.8" cy="55.2" r="3.3" fill="#14213D"/><circle cx="45.7" cy="24.4" r="4.0" fill="#14213D"/><circle cx="57.4" cy="61.5" r="2.6" fill="#14213D"/><circle cx="20.3" cy="39.8" r="3.3" fill="#14213D"/><circle cx="65.8" cy="30.1" r="4.0" fill="#14213D"/><circle cx="36.9" cy="70.5" r="2.6" fill="#14213D"/><circle cx="30.7" cy="18.3" r="3.3" fill="#14213D"/><circle cx="72.5" cy="54.4" r="4.0" fill="#14213D"/><circle cx="14.8" cy="56.1" r="2.6" fill="#14213D"/><circle cx="57.9" cy="14.2" r="3.3" fill="#14213D"/><circle cx="54.2" cy="76.5" r="4.0" fill="#14213D"/><circle cx="13.6" cy="26.4" r="2.6" fill="#14213D"/><circle cx="79.4" cy="36.2" r="3.3" fill="#14213D"/><circle cx="22.6" cy="74.4" r="4.0" fill="#14213D"/><circle cx="39.1" cy="6.1" r="2.6" fill="#14213D"/><circle cx="74.0" cy="69.2" r="3.3" fill="#14213D"/><circle cx="3.9" cy="45.7" r="4.0" fill="#14213D"/><circle cx="73.1" cy="15.1" r="2.6" fill="#14213D"/></svg>
-        <div class="part-head"><p class="chs">Chapter Nine and the Conclusion</p><h3>The missing node</h3></div>
-        <p class="part-body">My take on what is actually broken about breaking in, why the obvious fixes did not work, and why I built MatCap the way I did. The book ends with a request: once you are in, hold the door open for the next outsider.</p>
-      </article>
-      </div>
+  <section id="toc">
+    <h2>What's inside</h2>
+    <ol class="toc">
+      <li>Prologue</li>
+      <li>Introduction: Little Did I Know</li>
+      <li>Chapter One: Know Thy Maximum</li>
+      <li>Chapter Two: Finding the Global Maximum</li>
+      <li>Chapter Three: Read This Before You Raise</li>
+      <li>Chapter Four: Intro to Social Capital</li>
+      <li>Chapter Five: Fundraising Fundamentals</li>
+      <li>Chapter Six: Node Stacking</li>
+      <li>Chapter Seven: Fundraising Tactics</li>
+      <li>Chapter Eight: Fundraising Mistakes Every First-Time Founder Makes</li>
+      <li>Chapter Nine: The Missing Node</li>
+      <li>Conclusion: Hold the Door Open</li>
+      <li>Appendix: 100 Accounts to Follow</li>
+    </ol>
+    <p class="also">Also inside: Glossary, Resources, Acknowledgments, About the Author, and Notes.</p>
+  </section>
+
+  <section id="notify" class="signup">
+    <h2>Get notified at launch</h2>
+    <p>
+      This is Forward Thinking, my newsletter — subscribe to get a taste
+      for the ideas in this book and my thinking generally. I'll also send
+      one note the day the book is live. Prefer email? Just write to
+      <a href="mailto:mat@matsherman.com?subject=Notify%20me%20when%20The%20Access%20Game%20launches">mat@matsherman.com</a>.
+    </p>
+    <div class="embed-frame">
+      <iframe
+        src="https://forwardthinking.substack.com/embed"
+        width="100%"
+        height="150"
+        style="border:0; background:white;"
+        frameborder="0"
+        scrolling="no">
+      </iframe>
+    </div>
+    <p class="fine">Coming 2027. No spam, and you can unsubscribe any time.</p>
+  </section>
+
+  <section id="author" class="author-sec">
+    <h2>About the author</h2>
+    <p>
+      Mat Sherman is the founder and general partner of MatCap, an
+      advisory-first pre-seed venture firm. He has spent more than a decade
+      in the startup ecosystem, and since 2020 has worked to bring the
+      advantages of the Bay Area to founders everywhere else.
+    </p>
+    <p>
+      He has made thousands of founder and investor introductions and works
+      with more than 100 funds. Before MatCap he founded PubLoft and
+      Seedscout, and worked at Product Hunt. He hosts the Forward Thinking
+      Founders podcast.
+    </p>
+    <p>A Phoenix-area native and Arizona State graduate, he lives in Scottsdale, Arizona.</p>
+    <div class="links">
+      <a href="/">matsherman.com</a>
+      <a href="https://www.matcap.vc">matcap.vc</a>
+      <a href="https://ftf.matsherman.com">Podcast</a>
+      <a href="https://forwardthinking.substack.com">Newsletter</a>
+      <a href="https://x.com/mat_Sherman">Twitter</a>
+      <a href="https://www.linkedin.com/in/matsherman/">LinkedIn</a>
     </div>
   </section>
 
-  <section class="contents" id="contents" aria-labelledby="contents-h">
-    <div class="contents-inner">
-      <div class="contents-head">
-        <h2 id="contents-h">Contents</h2>
-        <button type="button" class="toggle" id="toc-toggle" aria-pressed="false">Expand all</button>
-      </div>
-      <ol class="toc">
-        <li class="toc-row plain"><span class="num" aria-hidden="true"></span><span class="ttl">Prologue</span></li><li class="toc-row"><details><summary><span class="num" aria-hidden="true"></span><span class="ttl">Introduction: Little Did I Know</span><span class="meta">4 sections</span><span class="plus" aria-hidden="true"></span></summary><ul class="subs"><li>Why Me</li><li>How This Book Is Structured</li><li>Don't Skip Ahead</li><li>This Book Is a Time Stamp</li></ul></details></li><li class="toc-row"><details><summary><span class="num" aria-hidden="true">1</span><span class="ttl"><span class="sr">Chapter One: </span>Know Thy Maximum</span><span class="meta">6 sections</span><span class="plus" aria-hidden="true"></span></summary><ul class="subs"><li>Seek the Global Maximum</li><li>Starting From Phoenix</li><li>My First Startup Idea</li><li>Y Combinator's Early Influence</li><li>Down the Rabbit Hole</li><li>My Second College Startup: Schmooz</li></ul></details></li><li class="toc-row"><details><summary><span class="num" aria-hidden="true">2</span><span class="ttl"><span class="sr">Chapter Two: </span>Finding the Global Maximum</span><span class="meta">13 sections</span><span class="plus" aria-hidden="true"></span></summary><ul class="subs"><li>Quitting My Job</li><li>Getting My First Customers</li><li>Bringing Y Combinator to Arizona</li><li>Lightning in a Bottle</li><li>Startup School and Pioneer</li><li>Landing Jason Calacanis as My First Investor</li><li>Silicon Valley Royalty</li><li>How to Burn $100,000</li><li>Slipping Through YC's Window</li><li>The Invisible Scout</li><li>Prenda and COVID</li><li>Learning From Eric</li><li>Seedscout</li></ul></details></li><li class="toc-row"><details><summary><span class="num" aria-hidden="true">3</span><span class="ttl"><span class="sr">Chapter Three: </span>Read This Before You Raise</span><span class="meta">6 sections</span><span class="plus" aria-hidden="true"></span></summary><ul class="subs"><li>Your First Warning</li><li>Profitability Is Not a Strategy</li><li>The Paradox of Conforming (and Standing Out)</li><li>Proximity Is King</li><li>The Best Time to Plant a Seed Was Ten Years Ago&hellip;</li><li>Don't Hate the Player (or the Game)</li></ul></details></li><li class="toc-row"><details><summary><span class="num" aria-hidden="true">4</span><span class="ttl"><span class="sr">Chapter Four: </span>Intro to Social Capital</span><span class="meta">8 sections</span><span class="plus" aria-hidden="true"></span></summary><ul class="subs"><li>The PayPal Mafia</li><li>The Outsider Tax</li><li>Don't Be a Project</li><li>The Anatomy of an Introduction</li><li>Not All Intros Are Created Equal</li><li>Every Intro Costs Social Capital</li><li>When Direct Outreach Is Okay</li><li>You Are a Pawn</li></ul></details></li><li class="toc-row"><details><summary><span class="num" aria-hidden="true">5</span><span class="ttl"><span class="sr">Chapter Five: </span>Fundraising Fundamentals</span><span class="meta">12 sections</span><span class="plus" aria-hidden="true"></span></summary><ul class="subs"><li>Should You Be Raising Money at All?</li><li>The Players: Angels and VCs</li><li>Understanding Rounds</li><li>Raising After You've Bootstrapped</li><li>What Happens When You Ignore Rounds</li><li>How Much Should You Raise?</li><li>How to Price Your Company</li><li>SAFEs, Convertible Notes, and Priced Rounds: How Do You Actually Raise?</li><li>AngelList, RUVs, and Syndicates</li><li>Create a Good One-Liner</li><li>Get a Well-Designed Pitch Deck</li><li>The Components of a Great Deck</li></ul></details></li><li class="toc-row"><details><summary><span class="num" aria-hidden="true">6</span><span class="ttl"><span class="sr">Chapter Six: </span>Node Stacking</span><span class="meta">8 sections</span><span class="plus" aria-hidden="true"></span></summary><ul class="subs"><li>Accelerators and Programs</li><li>Events</li><li>Twitter</li><li>Build a Media Asset</li><li>Spend Time in SF</li><li>Work Somewhere That Compounds</li><li>Turn Contacts Into Nodes</li><li>When You're Ready to Raise Money</li></ul></details></li><li class="toc-row"><details><summary><span class="num" aria-hidden="true">7</span><span class="ttl"><span class="sr">Chapter Seven: </span>Fundraising Tactics</span><span class="meta">8 sections</span><span class="plus" aria-hidden="true"></span></summary><ul class="subs"><li>Mapping Your Network and Making the Ask</li><li>Managing Intros</li><li>Winning the Meeting</li><li>Getting the Wire</li><li>Keep the Pressure On</li><li>Closing the Round</li><li>Zero to Closed: A One-Year Timeline</li><li>When the Raise Stalls</li></ul></details></li><li class="toc-row"><details><summary><span class="num" aria-hidden="true">8</span><span class="ttl"><span class="sr">Chapter Eight: </span>Fundraising Mistakes Every First-Time Founder Makes</span><span class="meta">10 sections</span><span class="plus" aria-hidden="true"></span></summary><ul class="subs"><li>Setting Arbitrary Minimum Check Sizes</li><li>Holding Out for a Lead You Don't Need</li><li>Ignoring VCs' Ownership Targets</li><li>Taking More Money by Default</li><li>Stacking SAFEs Without Doing the Math</li><li>Making Traction the Headline</li><li>Asking Why When an Investor Says No</li><li>Bragging About a $0 CAC</li><li>Fudging the Numbers</li><li>Who's Telling You to Think Bigger, and Why?</li></ul></details></li><li class="toc-row"><details><summary><span class="num" aria-hidden="true">9</span><span class="ttl"><span class="sr">Chapter Nine: </span>The Missing Node</span><span class="meta">6 sections</span><span class="plus" aria-hidden="true"></span></summary><ul class="subs"><li>Access Is the Constraint</li><li>Why the System Works This Way</li><li>The Fixes That Didn't Fix It</li><li>The Capital Paradox</li><li>A Social Capital Bank for Outsiders</li><li>Why MatCap Is Built This Way</li></ul></details></li><li class="toc-row plain"><span class="num" aria-hidden="true"></span><span class="ttl">Conclusion: Hold the Door Open</span></li><li class="toc-row plain"><span class="num" aria-hidden="true"></span><span class="ttl">Appendix: 100 Accounts to Follow</span></li>
-      </ol>
-      <p class="also">Also inside: Glossary, Resources, Acknowledgments, About the Author, and Notes.</p>
-    </div>
-  </section>
-
-  <section class="signup" id="notify" aria-labelledby="notify-h">
-    <div class="signup-inner">
-      <h2 id="notify-h">Get notified at launch</h2>
-      <p class="lede">
-        This is Forward Thinking, my newsletter — subscribe to get a taste
-        for the ideas in this book and my thinking generally. I'll also send
-        one note the day the book is live. Prefer email? Just write to
-        <a href="mailto:mat@matsherman.com?subject=Notify%20me%20when%20The%20Access%20Game%20launches">mat@matsherman.com</a>.
-      </p>
-      <div class="embed-frame">
-        <iframe
-          src="https://forwardthinking.substack.com/embed"
-          width="100%"
-          height="150"
-          style="border:0; background:white;"
-          frameborder="0"
-          scrolling="no">
-        </iframe>
-      </div>
-      <p class="fine">Coming 2027. No spam, and you can unsubscribe any time.</p>
-    </div>
-  </section>
-
-  <section class="author-sec" aria-labelledby="author-h">
-    <h2 id="author-h">About the author</h2>
-    <div>
-      <p>Mat Sherman is the founder and general partner of MatCap, an advisory-first pre-seed venture firm. He has spent more than a decade in the startup ecosystem, and since 2020 has worked to bring the advantages of the Bay Area to founders everywhere else.</p>
-      <p>He has made thousands of founder and investor introductions and works with more than 100 funds. Before MatCap he founded PubLoft and Seedscout, and worked at Product Hunt. He hosts the Forward Thinking Founders podcast.</p>
-      <p>A Phoenix-area native and Arizona State graduate, he lives in Scottsdale, Arizona.</p>
-      <div class="links">
-        <a href="/">matsherman.com</a>
-        <a href="https://www.matcap.vc">matcap.vc</a>
-        <a href="https://ftf.matsherman.com">Podcast</a>
-        <a href="https://forwardthinking.substack.com">Newsletter</a>
-        <a href="https://x.com/mat_Sherman">Twitter</a>
-        <a href="https://www.linkedin.com/in/matsherman/">LinkedIn</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="qrlinks" aria-labelledby="qrlinks-h">
-    <div class="qrlinks-inner">
-      <h2 id="qrlinks-h">Links referenced in the book</h2>
-      <ul>
-        <li><a href="/book/first-call-in">First Call-In</a></li>
-        <li><a href="/book/second-call-in">Second Call-In</a></li>
-        <li><a href="/book/launch-pitch">Launch Pitch</a></li>
-      </ul>
-    </div>
+  <section id="links" class="qrlinks">
+    <h2>Links referenced in the book</h2>
+    <ul>
+      <li><a href="/book/first-call-in">First Call-In</a></li>
+      <li><a href="/book/second-call-in">Second Call-In</a></li>
+      <li><a href="/book/launch-pitch">Launch Pitch</a></li>
+    </ul>
   </section>
 </main>
 
@@ -400,24 +270,5 @@
   <a href="/">&larr; Mat Sherman</a>
 </footer>
 
-<script>
-(function () {
-  var btn = document.getElementById("toc-toggle");
-  if (!btn) return;
-  var all = document.querySelectorAll(".toc details");
-  function sync() {
-    var allOpen = Array.prototype.every.call(all, function (d) { return d.open; });
-    btn.textContent = allOpen ? "Collapse all" : "Expand all";
-    btn.setAttribute("aria-pressed", allOpen ? "true" : "false");
-  }
-  btn.addEventListener("click", function () {
-    var allOpen = Array.prototype.every.call(all, function (d) { return d.open; });
-    Array.prototype.forEach.call(all, function (d) { d.open = !allOpen; });
-    sync();
-  });
-  Array.prototype.forEach.call(all, function (d) { d.addEventListener("toggle", sync); });
-  sync();
-})();
-</script>
 </body>
 </html>
